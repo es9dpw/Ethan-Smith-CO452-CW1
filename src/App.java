@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args){
         boolean exit = false;
-        while (exit == false);
+        while (exit == false){
             System.out.println("MAIN MENU");
             System.out.println("");
             System.out.println("1. Add Song");
@@ -15,5 +15,6 @@ public class App {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Please enter your choice: ");
             String option = scanner.nextLine();
+        }
     }
 }
