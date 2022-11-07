@@ -50,7 +50,7 @@ public class App {
                 int songNumber = 0;
                 if (songCount > -1){
                     while (songNumber <= songCount){
-                        System.out.println("Song " + (songNumber + 1) + ": " + songList.get(songNumber) + ", " + artistList.get(songNumber) + ", " + playsList.get(songNumber) + " plays.");
+                        System.out.println("Song " + (songNumber + 1) + ": " + songList.get(songNumber) + " by " + artistList.get(songNumber) + ", " + playsList.get(songNumber) + " plays.");
                         songNumber = songNumber + 1;
                     }
                 System.out.println("");
@@ -60,7 +60,26 @@ public class App {
                 }
             }
             else if (option.equals("4")){
-                System.out.println("you picked 4\n");
+                System.out.print("Enter minimum number of plays: ");
+                String minimumPlays = scanner.nextLine();
+                int minPlays = Integer.parseInt(minimumPlays);
+                System.out.println("");
+                int songNumber = 0;
+                int songDisplay = 1;
+                boolean enoughPlays = false;
+                while (songNumber <= songCount){
+                    int playsNumber = Integer.parseInt(playsList.get(songNumber));
+                    if (minPlays <= playsNumber){
+                        System.out.println("Song " + (songDisplay) + ": " + songList.get(songNumber) + ", " + artistList.get(songNumber) + ", " + playsList.get(songNumber) + " plays.");
+                        enoughPlays = true;
+                        songDisplay = songDisplay + 1;
+                    }
+                    songNumber = songNumber + 1;
+                }
+                if (enoughPlays == false){
+                    System.out.println("No songs have this many plays");
+                }
+                System.out.println("");
             }
             else if (option.equals("5")){
                 System.out.println("Exiting Program");
