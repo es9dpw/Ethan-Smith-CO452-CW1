@@ -13,7 +13,7 @@ public class App {
         //Creating each array list for songs, artists and amount of plays
         while (exit == false){
         //Creating a loop checking whether the user has asked to exit the program
-            System.out.print("MAIN MENU \n\n1. Add Song \n2. Remove Song \n3. List Songs \n4. List Top Song \n5. Exit Program \n\nPlease enter your choice: ");
+            System.out.print("MAIN MENU \n\n1. Add Song \n2. Remove Song \n3. List Songs \n4. List Top Songs \n5. Exit Program \n\nPlease enter your choice: ");
             //Main menu showing all option
             Scanner scanner = new Scanner(System.in);
             String option = scanner.nextLine();
