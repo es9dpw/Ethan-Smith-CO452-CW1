@@ -91,8 +91,6 @@ public class App {
                 //Coverts the string from the scanner to an integer
                 System.out.println("");
                 int songNumber = 0;
-                //Creating variable used to check whether all songs have been searched
-                int songDisplay = 1;
                 //Creating variable used to display number of songs to user
                 boolean enoughPlays = false;
                 //Creating variable used to check whether any songs have enough plays to be displayed
@@ -102,10 +100,9 @@ public class App {
                     //Coverts the string from the array list to an integer
                     if (minPlays <= playsNumber){
                     //checks if each song has enough plays
-                        System.out.println("Song " + (songDisplay) + ": " + songList.get(songNumber) + ", " + artistList.get(songNumber) + ", " + playsList.get(songNumber) + " plays.");
+                        System.out.println("Song " + (songNumber + 1) + ": " + songList.get(songNumber) + ", " + artistList.get(songNumber) + ", " + playsList.get(songNumber) + " plays.");
                         enoughPlays = true;
-                        songDisplay = songDisplay + 1;
-                        //displays songs with enough plays, tells the program at least one song has enough plays, and adds 1 to the song display
+                        //displays songs with enough plays and tells the program at least one song has enough plays
                     }
                     songNumber = songNumber + 1;
                     //adds 1 to the song number
