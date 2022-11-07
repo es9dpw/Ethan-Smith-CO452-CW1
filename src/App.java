@@ -6,7 +6,7 @@ public class App {
         boolean exit = false;
         //Creating variable used to check whether user has exited program
         int songCount = -1;
-        //Creating variable used to see how many sonsg there are
+        //Creating variable used to see how many songs there are
         ArrayList<String> songList = new ArrayList<String>();
         ArrayList<String> artistList = new ArrayList<String>();
         ArrayList<String> playsList = new ArrayList<String>();
