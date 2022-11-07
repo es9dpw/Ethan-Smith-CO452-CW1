@@ -11,15 +11,15 @@ public class App {
         while (exit == false){
             System.out.print("MAIN MENU \n\n1. Add Song \n2. Remove Song \n3. List Songs \n4. List Top Song \n5. Exit Program \n\nPlease enter your choice: ");
             Scanner scanner = new Scanner(System.in);
-            String option = scanner.next();
+            String option = scanner.nextLine();
             System.out.println("");
             if (option.equals("1")){
                 System.out.print("Enter name of song: ");
-                songList.add(scanner.next());
+                songList.add(scanner.nextLine());
                 System.out.print("Enter name of artist: ");
-                artistList.add(scanner.next());
+                artistList.add(scanner.nextLine());
                 System.out.print("Enter number of plays: ");
-                playsList.add(scanner.next());
+                playsList.add(scanner.nextLine());
                 songCount = songCount + 1;
                 System.out.println("Song Added\n");
             }
@@ -27,10 +27,13 @@ public class App {
                 boolean found = false;
                 int songNumber = 0;
                 System.out.print("Enter name of song to remove: ");
-                System.out.println("");
-                String remove = scanner.next();
+                String remove = scanner.nextLine();
                 while (found == false){
-                    if (remove.equals(songList.get(songNumber))){
+                    if (songNumber > songCount){
+                        System.out.println("Song not found, returning to main menu.\n");
+                        found = true;
+                    }
+                    else if (remove.equals(songList.get(songNumber))){
                         songList.remove(songNumber);
                         artistList.remove(songNumber);
                         playsList.remove(songNumber);
@@ -38,27 +41,23 @@ public class App {
                         found = true;
                         System.out.println("Song Removed\n");
                     }
-                    else if (songNumber > songCount){
-                        System.out.print("Song not found. If you wish to try again, type \"try again\" or press enter to return to the main menu: ");
-                        String tryAgain = scanner.next();
-                        if (tryAgain.equals("try again")){
-                            System.out.println("");
-                            System.out.print("Enter name of song to remove: ");
-                            remove = scanner.next();
-                            System.out.println("");
-                        }
-                        else{
-                            found = true;
-                            System.out.println("");
-                        }
-                    }
                     else{
                         songNumber = songNumber + 1;
                     }
                 }
             }
             else if (option.equals("3")){
-                System.out.println("you picked 3\n");
+                int songNumber = 0;
+                if (songCount > -1){
+                    while (songNumber <= songCount){
+                        System.out.println("Song " + (songNumber + 1) + ": " + songList.get(songNumber) + ", " + artistList.get(songNumber) + ", " + playsList.get(songNumber) + " plays.");
+                        songNumber = songNumber + 1;
+                    }
+                System.out.println("");
+                }
+                else{
+                    System.out.println("No songs added\n");
+                }
             }
             else if (option.equals("4")){
                 System.out.println("you picked 4\n");
